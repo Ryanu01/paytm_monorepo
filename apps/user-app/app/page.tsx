@@ -1,11 +1,14 @@
 "use client"
 
+import { Button } from "@repo/ui/button"
+import { NavBar } from "@repo/ui/navbar"
+import { signIn, signOut, useSession } from "next-auth/react"
+
 export default function Home() {
+  const session = useSession()
   return (
-    <div>
-      <h1 className="text-3xl bg-red-400 font-bold underline">
-        Hello world!
-      </h1>
+    <div >
+      <NavBar user={session.data?.user} onSignin={signIn} onSignout={signOut}></NavBar>
      </div>
   )
 }
