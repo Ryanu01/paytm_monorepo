@@ -25,7 +25,7 @@ export const authOptions = {
 
                 const existingUser = await prisma.user.findFirst({
                     where: {
-                        number: data.phone.toString()
+                        number: data.number.toString()
                     }
                 })
 
