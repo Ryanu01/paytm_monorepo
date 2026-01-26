@@ -15,7 +15,6 @@ export const authOptions = {
                 if(!credentials) {
                     return null
                 }
-                console.log(credentials);
                 
                 const { success, data } = SignInSchema.safeParse(credentials)
                 
