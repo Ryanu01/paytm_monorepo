@@ -23,5 +23,4 @@ export const SideBarComponent = ({ href, icon, title }: SideBarProps) => {
       {title}
     </div>
   </div>
-
-} 
+}
