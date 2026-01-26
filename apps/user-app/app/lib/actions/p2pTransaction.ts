@@ -9,9 +9,7 @@ export async function P2ptransaction (number: string, amount: string) {
     const session = await getServerSession(authOptions)
 
     if(!session?.user?.id || !session.user) {
-        return {
-            message: "Error while sending"
-        }
+        return false
     }
     try {
         
@@ -24,9 +22,7 @@ export async function P2ptransaction (number: string, amount: string) {
 
         
         if(!to) {
-            return {
-                message: "User not found"
-            }
+            return false
         }        
 
         
@@ -67,10 +63,18 @@ export async function P2ptransaction (number: string, amount: string) {
                     }
                 }
             })
+
+            await tx.p2PTransaction.create({
+                data: {
+                    toUserId: to.id,
+                    fromUserId: Number(session?.user?.id),
+                    amount: Number(amount),
+                    timeStamp: new Date()
+                }
+            })
         })
+        return true
     } catch (error) {
-        return {
-            message : error
-        }
+        return false
     }
 }

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./Providers";
 import { AppBar } from "./AppBar";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,8 @@ export default function RootLayout({
         <Providers>
           <AppBar />
           {children}
+          <Toaster position="top-right" />
+
         </Providers>
       </body>
     </html>
