@@ -40,10 +40,18 @@ export async function POST (req: NextRequest) {
             }
         })
 
+        const balanceDb = await prisma.balance.create({
+            data: {
+                userId: user.id,
+                amount: 0,
+                locked: 0
+            }
+        })
         return NextResponse.json({
             id: user.id.toString(),
             name: user.name,
-            email: user.email
+            email: user.email,
+            amount: balanceDb.amount
         }, {
             status: 201
         })
