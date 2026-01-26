@@ -1,9 +1,7 @@
-export function Center({ children }: {
-  children: React.ReactNode
-}) {
-  return <div className="flex justify-center flex-col h-full">
-    <div className="flex justify-center">
+export function Center({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex h-screen items-center justify-center">
       {children}
     </div>
-  </div>
+  )
 }
