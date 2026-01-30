@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package.json package-lock.json turbo.json ./
 
-COPY app ./app
+COPY apps ./apps
 COPY packages ./packages
 
 RUN npm install
